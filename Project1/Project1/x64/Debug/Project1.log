@@ -1,0 +1,9 @@
+﻿main.obj : error LNK2019: nierozpoznany zewnętrzny symbol glfwInit przywołany w funkcji main
+main.obj : error LNK2019: nierozpoznany zewnętrzny symbol glfwTerminate przywołany w funkcji main
+main.obj : error LNK2019: nierozpoznany zewnętrzny symbol glfwCreateWindow przywołany w funkcji main
+main.obj : error LNK2019: nierozpoznany zewnętrzny symbol glfwWindowShouldClose przywołany w funkcji main
+main.obj : error LNK2019: nierozpoznany zewnętrzny symbol glfwPollEvents przywołany w funkcji main
+main.obj : error LNK2019: nierozpoznany zewnętrzny symbol glfwMakeContextCurrent przywołany w funkcji main
+main.obj : error LNK2019: nierozpoznany zewnętrzny symbol glfwSwapBuffers przywołany w funkcji main
+glfw3.lib : warning LNK4272: wystąpił konflikt typu maszyny biblioteki „x86” z typem maszyny docelowej „x64”
+C:\Users\Sobota\Desktop\Project1\x64\Debug\Project1.exe : fatal error LNK1120: liczba nierozpoznanych elementów zewnętrznych: 7
