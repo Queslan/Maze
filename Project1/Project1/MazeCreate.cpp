@@ -1,4 +1,5 @@
 #include "MazeCreate.h"
+#include "Solver.h"
 #include <dataStruct.h>
 #include <GLFW/glfw3.h>
 #include <ctime>
@@ -54,9 +55,9 @@ void MazeCreate::makeSketch()
 				break;
 		case 12:row = { 0,1,0,1,1,0,0,0,0,1,0,1,0,1,0,0 }; // 12
 				break;
-		case 13:row = { 0,1,0,1,0,0,1,0,1,1,0,1,0,0,1,0 }; // 13
+		case 13:row = { 0,1,0,1,0,0,1,0,1,1,0,1,0,0,2,0 }; // 13
 				break;
-		case 14:row = { 0,1,0,1,1,1,1,1,1,0,1,1,2,1,1,0 }; // 14
+		case 14:row = { 0,1,0,1,1,1,1,1,1,0,1,1,1,1,1,0 }; // 14
 				break;
 		case 15:row = { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }; // 15
 				break;
@@ -96,22 +97,20 @@ void MazeCreate::draw()
 		{
 			glColor3f(0, 0, 0);
 			if (maze[i][j]->isFinish)
-				glColor3f(1, 0, 0);
-			else
-				if (maze[i][j]->Visited) 
+				glColor3f(1, 1, 1);
+			else if (maze[i][j]->Visited) 
 				{
-					glColor3f(1.0 , 1.0, 0);
+					float r, g, b;
+					r = (float)((int)maze[i][j]->VisitedBy % 10) / 10;
+					g = (float)((int)(maze[i][j]->VisitedBy / 10) % 10) / 10;
+					b = (float)((int)(maze[i][j]->VisitedBy / 100) % 10) / 10;
+					glColor3f(r,g,b);
+					//glColor3f(1.0, 1.0, 0.0);
 				}
-				else
-					if (maze[i][j]->isWall)
+				else if (maze[i][j]->isWall)
 						glColor3f(0, 0, 0);
-					else
-
-						if (!maze[i][j]->isFinish && !maze[i][j]->isWall)
+					else if (!maze[i][j]->isFinish && !maze[i][j]->isWall)
 							glColor3f(1.0, 1.0, 1.0);
-						else
-							if(maze[i][j]->isFinish)
-								glColor3f(0.0, 1.0, 1.0);
 
 			timer = std::time(NULL);
 			glRectf(i, j, i + 1, j + 1);

@@ -11,8 +11,9 @@
 
 int main()
 {
+	
 	MazeCreate m1;
-	new Solver(m1.returnMaze(), 2, 1);
+	new Solver(m1.returnMaze(), 2, 14);
 	GLFWwindow* window;
 
 	/* Initialize the library */
@@ -41,7 +42,7 @@ int main()
 
 		/* Poll for and process events */
 		glfwPollEvents();
-		//std::this_thread::sleep_for(std::chrono::milliseconds(100));
+		std::this_thread::sleep_for(std::chrono::milliseconds(500));
 	}
 
 	glfwTerminate();
